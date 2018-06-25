@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getShirts } from './actions';
 import ShirtTile from './ShirtTile';
-import SearchContainer from './SearchContainer';
+import SearchFilter from './SearchFilter';
 //on mount grabs full shirt list and user
 //has filterSearch action that resets shirtlist
 
@@ -15,13 +15,17 @@ class ShirtsContainer extends Component {
   }
 
   render() {
-    const { isLoaded, shirts } = this.props;
+    const { isLoaded, shirts, brands, filter, filteredList } = this.props;
     if (!isLoaded) return <h1>loading...</h1>;
     return (
         <Wrapper>
-          <SearchContainer />
+          <SearchFilter />
           <ShirtGrid>
-            {shirts.map(shirt => <ShirtTile key={shirt.id} shirt={shirt}/>)}
+            {
+              (!filter) ?
+              shirts.map(shirt => <ShirtTile key={shirt.id} shirt={shirt}/>) :
+              filteredList.map(shirt => <ShirtTile key={shirt.id} shirt={shirt}/>)
+            }
           </ShirtGrid>
         </Wrapper>
     );
@@ -31,6 +35,9 @@ class ShirtsContainer extends Component {
 const mapStateToProps = state => ({
   shirts: state.shirts.shirts,
   isLoaded: state.shirts.shirtsLoaded,
+  brands: state.shirts.brands,
+  filter: state.shirts.filter,
+  filteredList: state.shirts.filteredList,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
