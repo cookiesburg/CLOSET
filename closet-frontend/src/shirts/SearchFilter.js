@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getShirts } from './actions';
-import { addBrandFilter, removeBrandFilter } from './actions';
+import { addBrandFilter, removeBrandFilter, changeMaxPrice } from './actions';
 
 class SearchFilter extends Component {
 
@@ -16,6 +16,14 @@ class SearchFilter extends Component {
     }
   }
 
+  state = {
+    value: 50,
+  }
+  handlePriceFilter = (e) => {
+    this.setState({value: e.target.value});
+    this.props.changeMaxPrice(e.target.value);
+  }
+
   render() {
     return(
       <Wrapper>
@@ -24,13 +32,18 @@ class SearchFilter extends Component {
           <div className='field'>
             {this.props.brands.map(brand =>
               <div>
-                <input type="checkbox" key={brand} value={brand} onClick={(e) => this.handleBrandFilter(e)}/>
+                <input type="checkbox" key={brand} value={brand} onClick={(e) => this.handleBrandFilter(e)} />
                 <label>{brand}</label>
               </div>
             )}
           </div>
           <div className='field'>
-            {/* <input type="range" min="1" max="100" value="50" class="slider" id="myRange" /> */}
+            <input type="range" min="0" max="100" step="5"
+              value={this.state.value}
+              onChange={this.handlePriceFilter}
+            />
+            <p>{this.state.value}</p>
+            {/* <output for="price" onforminput="value = price.valueAsNumber;"></output> */}
           </div>
           <button>RESET</button>
         </form>
@@ -51,6 +64,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   getShirts,
   addBrandFilter,
   removeBrandFilter,
+  changeMaxPrice,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchFilter);

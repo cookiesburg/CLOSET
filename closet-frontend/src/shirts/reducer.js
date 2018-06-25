@@ -1,4 +1,9 @@
-import { GET_SHIRTS, GET_SHIRT, ADD_BRAND_FILTER, REMOVE_BRAND_FILTER } from './actions';
+import { GET_SHIRTS,
+         GET_SHIRT,
+         ADD_BRAND_FILTER,
+         REMOVE_BRAND_FILTER,
+         CHANGE_PRICE_FILTER,
+} from './actions';
 
 const initialState = {
   shirts: [],
@@ -47,6 +52,13 @@ export default function (state = initialState, action) {
       return {
         ...state,
         filteredList: updatedList,
+      };
+    case CHANGE_PRICE_FILTER:
+      let updatedListPrice = state.shirts.filter(shirt => shirt.price <= data);
+      return {
+        ...state,
+        filter: true,
+        filteredList: updatedListPrice,
       };
     default:
       return state;

@@ -9,6 +9,7 @@ class ShirtTile extends Component {
   // getShirt() {
   //   this.props.getShirt(this.props.id);
   // }
+  
 
   render() {
     const { shirt } = this.props;
