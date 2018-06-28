@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import img from '../img/blueShirtModel.jpg';
+import Toggle from '../utilities/Toggle';
+import Modal from '../utilities/Modal';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 // import { getShirt } from './actions';
@@ -9,15 +11,24 @@ class ShirtTile extends Component {
   // getShirt() {
   //   this.props.getShirt(this.props.id);
   // }
-  
+
 
   render() {
     const { shirt } = this.props;
     return(
-      <TileContainer>
-        <img src={img} alt="blue shirt"/>
-        <div>{shirt.price}<span>{shirt.brand}</span></div>
-      </TileContainer>
+      <Toggle>
+        {({on, toggle}) => (
+          <div>
+            <Modal on={on} toggle={toggle}>
+              <h1>modal</h1>
+            </Modal>
+            <TileContainer>
+              <img src={img} alt="blue shirt"/>
+              <div>{shirt.price}.00<span>{shirt.brand_id}</span></div>
+            </TileContainer>
+          </div>
+        )}
+      </Toggle>
     );
   }
 }

@@ -1,4 +1,5 @@
 import { GET_SHIRTS,
+         GET_BRANDS,
          GET_SHIRT,
          ADD_BRAND_FILTER,
          REMOVE_BRAND_FILTER,
@@ -7,10 +8,10 @@ import { GET_SHIRTS,
 
 const initialState = {
   shirts: [],
+  brands: [],
   shirtsLoaded: false,
   shirt: {},
   shirtLoaded: false,
-  brands: [],
   filteredList: [],
   filter: false,
 };
@@ -20,12 +21,15 @@ export default function (state = initialState, action) {
   const data = action.data;
   switch (type) {
     case GET_SHIRTS:
-      const brands = [...new Set(data.map(shirt => shirt.brand))];
       return {
         ...state,
         shirts: data,
         shirtsLoaded: true,
-        brands: brands,
+      };
+    case GET_BRANDS:
+      return {
+        ...state,
+        brands: data,
       };
     case GET_SHIRT:
       return {
@@ -34,15 +38,15 @@ export default function (state = initialState, action) {
         shirtLoaded: true,
       };
     case ADD_BRAND_FILTER:
-      let addToList = state.shirts.filter(shirt => shirt.brand === data);
-      console.log(addToList);
+      let addToList = state.shirts.filter(shirt => shirt.brand_id === parseInt(data));
       return {
         ...state,
         filter: true,
         filteredList: [...state.filteredList, ...addToList],
       };
     case REMOVE_BRAND_FILTER:
-      let updatedList = state.filteredList.filter(shirt => shirt.brand !== data);
+    console.log(data, 'in removefilter reducer')
+      let updatedList = state.filteredList.filter(shirt => shirt.brand_id !== parseInt(data));
       if (updatedList.length === 0) {
         return {
           ...state,
@@ -54,6 +58,7 @@ export default function (state = initialState, action) {
         filteredList: updatedList,
       };
     case CHANGE_PRICE_FILTER:
+    console.log(data)
       let updatedListPrice = state.shirts.filter(shirt => shirt.price <= data);
       return {
         ...state,

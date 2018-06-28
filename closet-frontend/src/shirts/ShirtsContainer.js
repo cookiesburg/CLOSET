@@ -3,7 +3,7 @@ import Shirt from './Shirt';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getShirts } from './actions';
+import { getShirts, getBrands } from './actions';
 import ShirtTile from './ShirtTile';
 import SearchFilter from './SearchFilter';
 //on mount grabs full shirt list and user
@@ -12,6 +12,7 @@ import SearchFilter from './SearchFilter';
 class ShirtsContainer extends Component {
   componentDidMount() {
     this.props.getShirts();
+    this.props.getBrands();
   }
 
   render() {
@@ -41,7 +42,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getShirts,
+  getShirts, getBrands
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShirtsContainer);

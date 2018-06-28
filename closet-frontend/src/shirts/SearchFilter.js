@@ -8,11 +8,11 @@ import { addBrandFilter, removeBrandFilter, changeMaxPrice } from './actions';
 class SearchFilter extends Component {
 
   handleBrandFilter(e) {
-    let brandType = e.target.value
+    let brandId = e.target.value
     if (e.target.checked) {
-      this.props.addBrandFilter(brandType);
+      this.props.addBrandFilter(brandId);
     } else {
-      this.props.removeBrandFilter(brandType);
+      this.props.removeBrandFilter(brandId);
     }
   }
 
@@ -31,9 +31,9 @@ class SearchFilter extends Component {
         <form>
           <div className='field'>
             {this.props.brands.map(brand =>
-              <div>
-                <input type="checkbox" key={brand} value={brand} onClick={(e) => this.handleBrandFilter(e)} />
-                <label>{brand}</label>
+              <div key={brand.id}>
+                <input type="checkbox" value={brand.id} onClick={(e) => this.handleBrandFilter(e)} />
+                <label>{brand.name}</label>
               </div>
             )}
           </div>
