@@ -24,7 +24,7 @@ class ShirtTile extends Component {
             </Modal>
             <TileContainer>
               <img src={img} alt="blue shirt"/>
-              <div>{shirt.price}.00<span>{shirt.brand_id}</span></div>
+              <div>{shirt.price}.00<span>{shirt.brand.name}</span></div>
             </TileContainer>
           </div>
         )}
