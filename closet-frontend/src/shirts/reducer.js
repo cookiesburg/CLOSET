@@ -60,7 +60,6 @@ export default function (state = initialState, action) {
         filteredList: updatedList,
       };
     case CHANGE_PRICE_FILTER:
-    console.log(data)
       let updatedListPrice = state.shirts.filter(shirt => shirt.price <= data);
       return {
         ...state,
