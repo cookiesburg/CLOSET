@@ -39,13 +39,15 @@ export default function (state = initialState, action) {
       };
     case ADD_BRAND_FILTER:
       let addToList = state.shirts.filter(shirt => shirt.brand_id === parseInt(data));
+      let combinedList = [...state.filteredList, ...addToList];
+      let uniqueList = [...new Set(combinedList)];
+
       return {
         ...state,
         filter: true,
-        filteredList: [...state.filteredList, ...addToList],
+        filteredList: uniqueList,
       };
     case REMOVE_BRAND_FILTER:
-    console.log(data, 'in removefilter reducer')
       let updatedList = state.filteredList.filter(shirt => shirt.brand_id !== parseInt(data));
       if (updatedList.length === 0) {
         return {
