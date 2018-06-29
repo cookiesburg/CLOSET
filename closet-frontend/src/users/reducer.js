@@ -1,20 +1,19 @@
-// import { GET_SHIRTS, } from './actions';
+import { GET_USER, } from './actions';
 
 const initialState = {
-  user: [],
+  user: {},
 };
 
-// export default function (state = initialState, action) {
-//   const type = action.type;
-//   const data = action.data;
-//   switch (type) {
-//     case GET_SHIRTS:
-//       return {
-//         ...state,
-//         users: data,
-//         usersLoaded: true,
-//       };
-//     default:
-//       return state;
-//   }
-// }
+export default function (state = initialState, action) {
+  const type = action.type;
+  const data = action.data;
+  switch (type) {
+    case GET_USER:
+      return {
+        ...state,
+        user: data,
+      };
+    default:
+      return state;
+  }
+}
