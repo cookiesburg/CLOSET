@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getShirts } from './actions';
-import { addBrandFilter, removeBrandFilter, changeMaxPrice } from './actions';
+import { addBrandFilter, removeBrandFilter, changeMaxPrice, resetFilter } from './actions';
 
 class SearchFilter extends Component {
 
@@ -29,7 +29,7 @@ class SearchFilter extends Component {
       <Wrapper>
         <h4>SEARCH SHIRTS HERE</h4>
         <form>
-          <div className='field'>
+          <div className='field brands'>
             {this.props.brands.map(brand =>
               <div key={brand.id}>
                 <input type="checkbox" value={brand.id} onClick={(e) => this.handleBrandFilter(e)} />
@@ -42,10 +42,10 @@ class SearchFilter extends Component {
               value={this.state.value}
               onChange={this.handlePriceFilter}
             />
-            <p>{this.state.value}</p>
+            <p>Max $: {this.state.value}</p>
             {/* <output for="price" onforminput="value = price.valueAsNumber;"></output> */}
           </div>
-          <button>RESET</button>
+          <button onClick={this.props.resetFilter}>RESET</button>
         </form>
       </Wrapper>
     );
@@ -65,6 +65,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   addBrandFilter,
   removeBrandFilter,
   changeMaxPrice,
+  resetFilter
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchFilter);
@@ -83,5 +84,14 @@ const Wrapper = styled.div`
     flex-direction: column;
     border: 1px solid black;
     margin-bottom: 10px;
+  }
+
+  .brands {
+    align-items: flex-start;
+    padding-left: 30px;
+
+    div {
+      margin-bottom: 10px;
+    }
   }
 `;

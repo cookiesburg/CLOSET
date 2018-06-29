@@ -4,6 +4,7 @@ import { GET_SHIRTS,
          ADD_BRAND_FILTER,
          REMOVE_BRAND_FILTER,
          CHANGE_PRICE_FILTER,
+         RESET_FILTER,
 } from './actions';
 
 const initialState = {
@@ -65,6 +66,12 @@ export default function (state = initialState, action) {
         ...state,
         filter: true,
         filteredList: updatedListPrice,
+      };
+    case RESET_FILTER:
+      return {
+        ...state,
+        filter: false,
+        filteredList: [],
       };
     default:
       return state;
