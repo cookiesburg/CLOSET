@@ -32,7 +32,7 @@ Shirt.destroy_all
 
 # put this all in an array?
   50.times do |index|
-    Shirt.create!(brand_id: rand(65..72),
+    Shirt.create!(brand_id: rand(81..88),
                   desc: 'Here is a description of the selected shirt. It probably contains some flowery language pertaining to where it is made and what it is made of.',
                   price: rand(20..100),
                   img_url: "img.url",
@@ -48,3 +48,50 @@ Shirt.destroy_all
     end
 
   p "Created #{Shirt.count} shirts"
+
+User.destroy_all
+
+users = User.create([
+  { name: 'Eric Holzauer',
+    neck: rand(14..22),
+    l_sleeve: rand(18..25),
+    w_sleeve: rand(18..25),
+    sldr: rand(18..25),
+    chest: rand(40..60),
+    mid: rand(40..60),
+    cuff: rand(9..14),
+    length: rand(35..55)
+  },
+  { name: 'Jude Clark',
+    neck: rand(14..22),
+    l_sleeve: rand(18..25),
+    w_sleeve: rand(18..25),
+    sldr: rand(18..25),
+    chest: rand(40..60),
+    mid: rand(40..60),
+    cuff: rand(9..14),
+    length: rand(35..55)
+  },
+  { name: 'Nate Kearns',
+    neck: rand(14..22),
+    l_sleeve: rand(18..25),
+    w_sleeve: rand(18..25),
+    sldr: rand(18..25),
+    chest: rand(40..60),
+    mid: rand(40..60),
+    cuff: rand(9..14),
+    length: rand(35..55)
+  },
+  { name: 'Kenny Rampola',
+    neck: rand(14..22),
+    l_sleeve: rand(18..25),
+    w_sleeve: rand(18..25),
+    sldr: rand(18..25),
+    chest: rand(40..60),
+    mid: rand(40..60),
+    cuff: rand(9..14),
+    length: rand(35..55)
+  },
+  ])
+
+  p "Created #{User.count} users"

@@ -18,7 +18,7 @@ module Api::V1
     private
 
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :neck, :l_sleeve, :w_sleeve, :sldr, :chest, :mid, :cuff, :length)
     end
 end
 

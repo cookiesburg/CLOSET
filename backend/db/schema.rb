@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180627200906) do
+ActiveRecord::Schema.define(version: 20180629182432) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20180627200906) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "neck"
+    t.float "l_sleeve"
+    t.float "w_sleeve"
+    t.float "sldr"
+    t.float "chest"
+    t.float "mid"
+    t.float "cuff"
+    t.float "length"
   end
 
 end
