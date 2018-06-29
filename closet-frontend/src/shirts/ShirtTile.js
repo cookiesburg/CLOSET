@@ -20,9 +20,11 @@ class ShirtTile extends Component {
         {({on, toggle}) => (
           <div>
             <Modal on={on} toggle={toggle}>
-              <h1>modal</h1>
+              <div>
+                <h1>modal</h1>
+              </div>
             </Modal>
-            <TileContainer>
+            <TileContainer onClick={toggle}>
               <img src={img} alt="blue shirt"/>
               <div>{shirt.price}.00<span>{shirt.brand.name}</span></div>
             </TileContainer>
@@ -32,6 +34,7 @@ class ShirtTile extends Component {
     );
   }
 }
+
 
 // const mapStateToProps = state => ({
 //   shirt: state.shirts.shirt,
@@ -46,12 +49,17 @@ class ShirtTile extends Component {
 export default ShirtTile;
 
 const TileContainer = styled.div`
-  border: 1px solid orange;
-  width: 280px;
+  width: 270px;
   height: 490px;
-  margin: 3px;
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+
+  :hover {
+
+box-shadow: 0 0 10px #222;
+    cursor: pointer;
+  }
 
   img {
     max-width: 100%;

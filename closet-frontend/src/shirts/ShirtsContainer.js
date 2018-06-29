@@ -55,4 +55,5 @@ const ShirtGrid = styled.div`
   display:flex;
   flex-wrap: wrap;
   border: 3px solid black;
+  justify-content: space-around;
 `;

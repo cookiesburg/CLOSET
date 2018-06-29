@@ -27,7 +27,7 @@ class SearchFilter extends Component {
   render() {
     return(
       <Wrapper>
-        <h4>SEARCH SHIRTS HERE</h4>
+        <h4>Shirt Filter</h4>
         <form>
           <div className='field brands'>
             {this.props.brands.map(brand =>
@@ -78,6 +78,11 @@ const Wrapper = styled.div`
   border: 1px solid green;
   padding-left: 20px;
   padding-right: 10px;
+
+    h4 {
+      font-size: 21px;
+      letter-spacing: 2px;
+    }
 
   .field {
     display: flex;
