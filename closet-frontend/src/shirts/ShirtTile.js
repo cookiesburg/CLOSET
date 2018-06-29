@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import img from '../img/blueShirtModel.jpg';
 import Toggle from '../utilities/Toggle';
 import Modal from '../utilities/Modal';
+import ShirtDisplay from './ShirtDisplay';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 // import { getShirt } from './actions';
@@ -20,9 +21,7 @@ class ShirtTile extends Component {
         {({on, toggle}) => (
           <div>
             <Modal on={on} toggle={toggle}>
-              <div>
-                <h1>modal</h1>
-              </div>
+              <ShirtDisplay shirt={shirt} />
             </Modal>
             <TileContainer onClick={toggle}>
               <img src={img} alt="blue shirt"/>

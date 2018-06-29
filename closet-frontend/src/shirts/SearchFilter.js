@@ -42,7 +42,7 @@ class SearchFilter extends Component {
               value={this.state.value}
               onChange={this.handlePriceFilter}
             />
-            <p>Max $: {this.state.value}</p>
+            <p>Max $ {this.state.value}</p>
             {/* <output for="price" onforminput="value = price.valueAsNumber;"></output> */}
           </div>
           <button onClick={this.props.resetFilter}>RESET</button>
@@ -89,11 +89,14 @@ const Wrapper = styled.div`
     flex-direction: column;
     border: 1px solid black;
     margin-bottom: 10px;
+    font-weight: bold;
   }
 
   .brands {
     align-items: flex-start;
     padding-left: 30px;
+    font-size: 12px;
+    font-weight: bold;
 
     div {
       margin-bottom: 10px;

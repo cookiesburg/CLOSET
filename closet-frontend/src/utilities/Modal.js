@@ -35,11 +35,11 @@ const ModalWrapper = styled.div`
 const ModalCard = styled.div`
     position: relative;
     background: white;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 2px 2px 10px rgba(0,0,0, 0.3);
     z-index:10;
-    min-width: 300px;
-    min-height: 500px;
+    width: 560px;
+    height: 630px;
     display: flex;
 
     div {
