@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import img from '../img/blueShirtModel.jpg';
 
+
 class ShirtDisplay extends Component {
-  render() {
+  componentDidMount() {
     const { shirt } = this.props;
+    const { user } = this.props;
+    const shirtArr = [ shirt.neck, shirt.l_sleeve, shirt.w_sleeve, shirt.slder, shirt.chest, shirt.mid, shirt.cuff, shirt.length];
+    const userArr = [ user.neck, user.l_sleeve, user.w_sleeve, user.sldr, user.chest, user.mid, user.cuff, user.length];
+
+
+  }
+
+  render() {
+    const { shirt, user } = this.props;
     return(
       <DisContainer>
         <div className='top'>

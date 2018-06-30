@@ -18,7 +18,7 @@ class ShirtsContainer extends Component {
   }
 
   render() {
-    const { isLoaded, shirts, brands, filter, filteredList } = this.props;
+    const { isLoaded, shirts, brands, filter, filteredList, user } = this.props;
     if (!isLoaded) return <h1>loading...</h1>;
     return (
         <Wrapper>
@@ -26,8 +26,8 @@ class ShirtsContainer extends Component {
           <ShirtGrid>
             {
               (!filter) ?
-              shirts.map(shirt => <ShirtTile key={shirt.id} shirt={shirt}/>) :
-              filteredList.map(shirt => <ShirtTile key={shirt.id} shirt={shirt}/>)
+              shirts.map(shirt => <ShirtTile key={shirt.id} user={user} shirt={shirt}/>) :
+              filteredList.map(shirt => <ShirtTile key={shirt.id} user={user} shirt={shirt}/>)
             }
           </ShirtGrid>
         </Wrapper>

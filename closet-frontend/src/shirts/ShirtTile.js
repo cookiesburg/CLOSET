@@ -15,13 +15,13 @@ class ShirtTile extends Component {
 
 
   render() {
-    const { shirt } = this.props;
+    const { shirt, user } = this.props;
     return(
       <Toggle>
         {({on, toggle}) => (
           <div>
             <Modal on={on} toggle={toggle}>
-              <ShirtDisplay shirt={shirt} />
+              <ShirtDisplay user={user} shirt={shirt} />
             </Modal>
             <TileContainer onClick={toggle}>
               <img src={img} alt="blue shirt"/>
