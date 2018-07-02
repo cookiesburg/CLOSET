@@ -75,9 +75,8 @@ const Wrapper = styled.div`
   min-width: 280px;
   display:flex;
   flex-direction: column;
-  border: 1px solid green;
-  padding-left: 20px;
-  padding-right: 10px;
+  align-items: flex-start;
+  padding-left: 50px;
 
     h4 {
       font-size: 21px;
@@ -87,14 +86,12 @@ const Wrapper = styled.div`
   .field {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
     margin-bottom: 10px;
     font-weight: bold;
   }
 
   .brands {
     align-items: flex-start;
-    padding-left: 30px;
     font-size: 12px;
     font-weight: bold;
 

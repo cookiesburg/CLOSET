@@ -70,6 +70,8 @@ box-shadow: 0 0 10px #222;
     display: flex;
     justify-content: space-between;
     align-items; center;
-    border: 1px solid yellow;
+    background: black;
+    color: white;
+    padding: 10px;
   }
 `;

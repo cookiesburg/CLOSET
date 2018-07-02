@@ -53,6 +53,7 @@ export default function (state = initialState, action) {
       if (updatedList.length === 0) {
         return {
           ...state,
+          filteredList: [],
           filter: false,
         }
       }

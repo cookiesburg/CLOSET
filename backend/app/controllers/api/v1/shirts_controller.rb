@@ -6,7 +6,7 @@ module Api::V1
     end
 
     def index
-      @shirts = Shirt.order("created_at DESC")
+      @shirts = Shirt.order("price ASC")
       render json: @shirts, each_serializer: ShirtSerializer
     end
 

@@ -11,6 +11,14 @@ class ShirtDisplay extends Component {
     const userArr = [ user.neck, user.l_sleeve, user.w_sleeve, user.sldr, user.chest, user.mid, user.cuff, user.length];
 
 
+    const diffs = userArr.map((e, i) => {
+      return (Math.abs(e - shirtArr[i]))/e;
+    });
+
+    const combMatch = diffs.reduce((a,b) => a + b, 0);
+    const match = (1 - combMatch/8)*100;
+    console.log(match);
+
   }
 
   render() {
@@ -21,6 +29,7 @@ class ShirtDisplay extends Component {
           <img src={img} alt="blue shirt"/>
 
           <div>
+            <p></p>
             <p>{shirt.price}</p>
             <p>{shirt.brand.name}</p>
           </div>
@@ -47,7 +56,7 @@ const DisContainer = styled.div`
     align-items: stretch;
 
     img {
-      width: 350px;
+      width: 320px;
       height: 100%;
     }
 
@@ -59,6 +68,9 @@ const DisContainer = styled.div`
   }
   .bottom {
     height:25%;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 10px;
   }
 
 `;
