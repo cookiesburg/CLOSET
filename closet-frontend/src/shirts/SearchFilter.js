@@ -17,7 +17,7 @@ class SearchFilter extends Component {
   }
 
   state = {
-    value: 50,
+    value: 100,
   }
   handlePriceFilter = (e) => {
     this.setState({value: e.target.value});
@@ -27,7 +27,7 @@ class SearchFilter extends Component {
   render() {
     return(
       <Wrapper>
-        <h4>Shirt Filter</h4>
+        <p>FILTER SHIRTS</p>
         <form>
           <div className='field brands'>
             {this.props.brands.map(brand =>
@@ -45,7 +45,7 @@ class SearchFilter extends Component {
             <p>Max $ {this.state.value}</p>
             {/* <output for="price" onforminput="value = price.valueAsNumber;"></output> */}
           </div>
-          <button onClick={this.props.resetFilter}>RESET</button>
+          <button className='btn' onClick={this.props.resetFilter}>RESET FILTER</button>
         </form>
       </Wrapper>
     );
@@ -77,18 +77,20 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   padding-left: 50px;
+  border: 1px solid black;
 
-    h4 {
-      font-size: 21px;
+    p {
+      font-size: 18px;
       letter-spacing: 2px;
+      font-weight: bold;
     }
 
-  .field {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
 
   .brands {
     align-items: flex-start;
@@ -99,4 +101,5 @@ const Wrapper = styled.div`
       margin-bottom: 10px;
     }
   }
+
 `;

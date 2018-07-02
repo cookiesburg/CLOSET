@@ -25,7 +25,7 @@ class ShirtTile extends Component {
             </Modal>
             <TileContainer onClick={toggle}>
               <img src={img} alt="blue shirt"/>
-              <div>{shirt.price}.00<span>{shirt.brand.name}</span></div>
+              <div>${shirt.price}<span>{shirt.brand.name}</span></div>
             </TileContainer>
           </div>
         )}
@@ -53,10 +53,11 @@ const TileContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  margin-right: 3px;
 
   :hover {
 
-box-shadow: 0 0 10px #222;
+    box-shadow: 0 0 8px gray;
     cursor: pointer;
   }
 
@@ -64,14 +65,20 @@ box-shadow: 0 0 10px #222;
     max-width: 100%;
     height: auto;
     flex-grow: 4;
+    border: 3px solid gray;
+    border-bottom: none;
+    border-radius: 5px 5px 0 0;
   }
   div {
+    border-radius: 0 0 5px 5px;
+    border:3px solid gray;
+    border-top: none;
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items; center;
-    background: black;
-    color: white;
+    background: white;
+    color: gray;
     padding: 10px;
   }
 `;

@@ -52,6 +52,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(ShirtsContainer);
 
 const Wrapper = styled.div`
   display: flex;
+  padding-right:10px;
 `;
 
 const ShirtGrid = styled.div`

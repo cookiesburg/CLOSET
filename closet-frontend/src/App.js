@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Head from './Head';
 import ShirtsContainer from './shirts/ShirtsContainer';
+import AboutContainer from './AboutContainer';
+import ClosetContainer from './ClosetContainer';
 import { Provider } from 'react-redux';
 import rootReducer from './rootReducer';
 import { applyMiddleware, createStore } from 'redux';
@@ -30,6 +32,8 @@ const App = () => (
         <Head />
         <Switch>
             <Route exact path='/' component={ShirtsContainer} />
+            <Route path='/about' component={AboutContainer} />
+            <Route path='/my-closet' component={ClosetContainer} />
         </Switch>
       </div>
     </Router>
