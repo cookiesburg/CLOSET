@@ -14,7 +14,7 @@ class ShirtsContainer extends Component {
   componentDidMount() {
     this.props.getShirts();
     this.props.getBrands();
-    this.props.getUser(1);
+    this.props.getUser(5);
   }
 
   render() {
