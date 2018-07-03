@@ -16,12 +16,12 @@ export default class Head extends Component {
           </Link>
         </div>
         <div className='menu-link'>
-          <Link to='/'>
+          <Link to='/about'>
             <p>ABOUT</p>
           </Link>
         </div>
         <div className='menu-link'>
-          <Link to='/'>
+          <Link to='/my-closet'>
             <p>MY CLOSET</p>
           </Link>
         </div>
