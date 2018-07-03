@@ -32,7 +32,7 @@ Shirt.destroy_all
 
 # put this all in an array?
   50.times do |index|
-    Shirt.create!(brand_id: rand(81..88),
+    Shirt.create!(brand_id: rand(brand_ids[0]..brand_ids[7]),
                   desc: 'Here is a description of the selected shirt. It probably contains some flowery language pertaining to where it is made and what it is made of.',
                   price: rand(20..100),
                   img_url: "img.url",
